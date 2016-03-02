@@ -8,18 +8,21 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using Game_of_Life.Classes;
+using Game_of_Life.Forms;
 
 namespace Game_of_Life
 {
     public partial class MainForm : Form
     {
-        Thread StepThread = new Thread(new ThreadStart(Grid.Step));
+        
 
         public MainForm()
         {
             InitializeComponent();
-            
-            Grid.FillGrid(15, 1280, 720);
+            Setup setup = new Setup(this);
+            setup.ShowDialog();
+
+            //Grid.FillGrid(15, 1280, 720);
             //Grid.FillGrid(200, 1000, 800);
 
             lblWorking.Visible = false;
@@ -51,5 +54,7 @@ namespace Game_of_Life
             pbGrid.Refresh();
             lblWorking.Visible = false;
         }
+
+        
     }
 }
