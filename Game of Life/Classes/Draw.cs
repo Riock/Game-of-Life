@@ -40,7 +40,7 @@ namespace Game_of_Life.Classes
                         //g.FillRectangle(new SolidBrush(Color.White), c.X * Grid.CellSize + 1, c.Y * Grid.CellSize + 1, Grid.CellSize - 1, Grid.CellSize - 1);
 
                         g.FillRectangle(new SolidBrush(Color.White), c.Hitbox);
-                    }                    
+                    }
                 }                
             }
         }

@@ -37,6 +37,7 @@ namespace Game_of_Life
                 if (c.Hitbox.Contains(e.Location))
                 {
                     c.Clicked();
+                    MessageBox.Show(c.IsEdge.ToString());
                     pbGrid.Refresh();
                     break;
                 }

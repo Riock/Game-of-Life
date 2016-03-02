@@ -12,6 +12,30 @@ namespace Game_of_Life.Classes
         public int X { get; private set; }
         public int Y { get; private set; }
         public bool Life { get; private set; }
+        public bool IsEdge
+        {
+            get
+            {
+                if (this.X == 1)
+                {
+                    return true;
+                }
+                else if (this.X == Grid.CellWidth)
+                {
+                    return true;
+                }
+                else if (this.Y == 1)
+                {
+                    return true;
+                }
+                else if (this.Y == Grid.CellHeight)
+                {
+                    return true;
+                }
+                else return false;
+            }
+            private set { ;}
+        }
         public Rectangle Hitbox { get; private set; }
 
         public Cell(int x, int y)
