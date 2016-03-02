@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using Game_of_Life.Classes;
 
@@ -17,6 +17,9 @@ namespace Game_of_Life
         {
             InitializeComponent();
             Grid.FillGrid(15, 1280, 720);
+            //Grid.FillGrid(200, 1000, 800);
+
+            lblWorking.Visible = false;
 
             foreach (Cell c in Grid.Cells)
             {
@@ -37,11 +40,19 @@ namespace Game_of_Life
                 if (c.Hitbox.Contains(e.Location))
                 {
                     c.Clicked();
-                    MessageBox.Show(c.IsEdge.ToString());
                     pbGrid.Refresh();
                     break;
                 }
             }
+        }
+
+        private void btnStep_Click(object sender, EventArgs e)
+        {
+            lblWorking.Visible = true;
+            Thread.Sleep(10);
+            Grid.Step();
+            pbGrid.Refresh();
+            lblWorking.Visible = false;
         }
     }
 }

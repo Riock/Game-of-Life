@@ -48,10 +48,133 @@ namespace Game_of_Life.Classes
 
         public static void Step()
         {
-            foreach (Cell C in Cells)
+            foreach (Cell c in Cells)
             {
+                Cell[] Area = new Cell[8]; 
+
+                //for loop looks for 8 neighbours, starting at the top left clockwise
+                for (int i = 0; i < 8; i++)
+                {
+                    if (i == 0)
+                    {
+                        Area[i] = FindCell(c.X - 1, c.Y - 1);
+                        if (Area[i] == null)
+                        {
+                            Area[1] = new Cell();
+                        }
+                    }
+                    else if (i == 1)
+                    {
+                        Area[i] = FindCell(c.X, c.Y - 1);
+                        if (Area[i] == null)
+                        {
+                            Area[1] = new Cell();
+                        }
+                    }
+                    else if (i == 2)
+                    {
+                        Area[i] = FindCell(c.X + 1, c.Y - 1);
+                        if (Area[i] == null)
+                        {
+                            Area[1] = new Cell();
+                        }
+                    }
+                    else if (i == 3)
+                    {
+                        Area[i] = FindCell(c.X + 1, c.Y);
+                        if (Area[i] == null)
+                        {
+                            Area[1] = new Cell();
+                        }
+                    }
+                    else if (i == 4)
+                    {
+                        Area[i] = FindCell(c.X + 1, c.Y + 1);
+                        if (Area[i] == null)
+                        {
+                            Area[1] = new Cell();
+                        }
+                    }
+                    else if (i == 5)
+                    {
+                        Area[i] = FindCell(c.X, c.Y + 1);
+                        if (Area[i] == null)
+                        {
+                            Area[1] = new Cell();
+                        }
+                    }
+                    else if (i == 6)
+                    {
+                        Area[i] = FindCell(c.X - 1, c.Y + 1);
+                        if (Area[i] == null)
+                        {
+                            Area[1] = new Cell();
+                        }
+                    }
+                    else if (i == 7)
+                    {
+                        Area[i] = FindCell(c.X - 1, c.Y );
+                        if (Area[i] == null)
+                        {
+                            Area[1] = new Cell();
+                        }
+                    }
+                }
+
+                //life check logic here
+
+                //count life in area
+                int liveInArea = 0;
+                foreach (Cell a in Area)
+                {
+                    if (a == null)
+                    {
+                        //just so I could use the else. sloppy I know
+                    }
+                    else if (a.Life)
+                    {
+                        liveInArea++;
+                    }
+                }
                 
+                //update current cell
+                if (c.Life && liveInArea < 2)
+                {
+                    c.Life = false;
+                }
+                else if (c.Life && liveInArea >= 2 && liveInArea <= 3)
+                {
+                    c.Life = true;
+                }
+                else if (c.Life && liveInArea > 3)
+                {
+                    c.Life = false;
+                }
+                else if (!c.Life && liveInArea == 3)
+                {
+                    c.Life = true;
+                }
             }
+        }
+        /// <summary>
+        /// Returns the cell at the specified coordinates
+        /// </summary>
+        /// <param name="x">x coordinate within the cell grid</param>
+        /// <param name="y">y coordinate within the cell grid</param>
+        /// <returns>returns the cell, or null if there is no cell at the specified coordinates</returns>
+        public static Cell FindCell(int x, int y)
+        {
+            Cell ret = null;
+
+            foreach (Cell c in Cells)
+            {
+                if (c.X == x && c.Y == y)
+                {
+                    ret = c;
+                    break;
+                }
+            }
+            return ret;
         }
 
     }

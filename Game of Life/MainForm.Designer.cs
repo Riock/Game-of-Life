@@ -30,6 +30,8 @@
         {
             this.pbGrid = new System.Windows.Forms.PictureBox();
             this.lbCells = new System.Windows.Forms.ListBox();
+            this.btnStep = new System.Windows.Forms.Button();
+            this.lblWorking = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,17 +53,39 @@
             this.lbCells.Size = new System.Drawing.Size(233, 719);
             this.lbCells.TabIndex = 1;
             // 
+            // btnStep
+            // 
+            this.btnStep.Location = new System.Drawing.Point(13, 744);
+            this.btnStep.Name = "btnStep";
+            this.btnStep.Size = new System.Drawing.Size(75, 23);
+            this.btnStep.TabIndex = 2;
+            this.btnStep.Text = "Step";
+            this.btnStep.UseVisualStyleBackColor = true;
+            this.btnStep.Click += new System.EventHandler(this.btnStep_Click);
+            // 
+            // lblWorking
+            // 
+            this.lblWorking.AutoSize = true;
+            this.lblWorking.Location = new System.Drawing.Point(1245, 749);
+            this.lblWorking.Name = "lblWorking";
+            this.lblWorking.Size = new System.Drawing.Size(47, 13);
+            this.lblWorking.TabIndex = 3;
+            this.lblWorking.Text = "Working";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1556, 746);
+            this.ClientSize = new System.Drawing.Size(1556, 779);
+            this.Controls.Add(this.lblWorking);
+            this.Controls.Add(this.btnStep);
             this.Controls.Add(this.lbCells);
             this.Controls.Add(this.pbGrid);
             this.Name = "MainForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbGrid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -69,6 +93,8 @@
 
         private System.Windows.Forms.PictureBox pbGrid;
         private System.Windows.Forms.ListBox lbCells;
+        private System.Windows.Forms.Button btnStep;
+        private System.Windows.Forms.Label lblWorking;
     }
 }
 

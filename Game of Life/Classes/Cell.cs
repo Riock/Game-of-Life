@@ -11,7 +11,7 @@ namespace Game_of_Life.Classes
     {
         public int X { get; private set; }
         public int Y { get; private set; }
-        public bool Life { get; private set; }
+        public bool Life { get; set; }
         public bool IsEdge
         {
             get
@@ -44,6 +44,15 @@ namespace Game_of_Life.Classes
             this.Y = y;
             this.Life = false;
             this.Hitbox = new Rectangle(X * Grid.CellSize + 1, Y * Grid.CellSize + 1, Grid.CellSize - 1, Grid.CellSize - 1);
+        }
+        /// <summary>
+        /// A cell that will always be false, used for edges
+        /// </summary>
+        public Cell()
+        {
+            this.X = 0;
+            this.Y = 0;
+            this.Life = false;
         }
 
         public void Clicked()
