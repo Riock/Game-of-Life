@@ -13,18 +13,16 @@ namespace Game_of_Life
 {
     public partial class MainForm : Form
     {
+        Thread StepThread = new Thread(new ThreadStart(Grid.Step));
+
         public MainForm()
         {
             InitializeComponent();
+            
             Grid.FillGrid(15, 1280, 720);
             //Grid.FillGrid(200, 1000, 800);
 
             lblWorking.Visible = false;
-
-            foreach (Cell c in Grid.Cells)
-            {
-                lbCells.Items.Add(c.ToString());
-            }
         }
 
         private void pbGrid_Paint(object sender, PaintEventArgs e)
@@ -49,7 +47,6 @@ namespace Game_of_Life
         private void btnStep_Click(object sender, EventArgs e)
         {
             lblWorking.Visible = true;
-            Thread.Sleep(10);
             Grid.Step();
             pbGrid.Refresh();
             lblWorking.Visible = false;

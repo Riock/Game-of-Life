@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pbGrid = new System.Windows.Forms.PictureBox();
-            this.lbCells = new System.Windows.Forms.ListBox();
             this.btnStep = new System.Windows.Forms.Button();
             this.lblWorking = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbGrid)).BeginInit();
@@ -44,14 +43,6 @@
             this.pbGrid.TabStop = false;
             this.pbGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.pbGrid_Paint);
             this.pbGrid.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbGrid_MouseUp);
-            // 
-            // lbCells
-            // 
-            this.lbCells.FormattingEnabled = true;
-            this.lbCells.Location = new System.Drawing.Point(1311, 12);
-            this.lbCells.Name = "lbCells";
-            this.lbCells.Size = new System.Drawing.Size(233, 719);
-            this.lbCells.TabIndex = 1;
             // 
             // btnStep
             // 
@@ -79,7 +70,6 @@
             this.ClientSize = new System.Drawing.Size(1556, 779);
             this.Controls.Add(this.lblWorking);
             this.Controls.Add(this.btnStep);
-            this.Controls.Add(this.lbCells);
             this.Controls.Add(this.pbGrid);
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -92,7 +82,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbGrid;
-        private System.Windows.Forms.ListBox lbCells;
         private System.Windows.Forms.Button btnStep;
         private System.Windows.Forms.Label lblWorking;
     }
