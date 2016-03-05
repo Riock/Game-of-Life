@@ -12,6 +12,7 @@ namespace Game_of_Life.Classes
         public int X { get; private set; }
         public int Y { get; private set; }
         public bool Life { get; set; }
+        public bool LifeNew { get; set; }
         public bool IsEdge
         {
             get
@@ -43,6 +44,7 @@ namespace Game_of_Life.Classes
             this.X = x;
             this.Y = y;
             this.Life = false;
+            this.LifeNew = false;
             this.Hitbox = new Rectangle(X * Grid.CellSize + 1, Y * Grid.CellSize + 1, Grid.CellSize - 1, Grid.CellSize - 1);
         }
         /// <summary>

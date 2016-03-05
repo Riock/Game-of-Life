@@ -140,29 +140,31 @@ namespace Game_of_Life.Classes
                 //update current cell
                 if (c.Life && liveInArea < 2)
                 {
-                    c.Life = false;
+                    c.LifeNew = false;
                 }
                 else if (c.Life && liveInArea >= 2 && liveInArea <= 3)
                 {
-                    c.Life = true;
+                    c.LifeNew = true;
                 }
                 else if (c.Life && liveInArea > 3)
                 {
-                    c.Life = false;
+                    c.LifeNew = false;
                 }
                 else if (!c.Life && liveInArea == 3)
                 {
-                    c.Life = true;
+                    c.LifeNew = true;
                 }
             }
+            UpdateCells();
         }
+
         /// <summary>
         /// Returns the cell at the specified coordinates
         /// </summary>
         /// <param name="x">x coordinate within the cell grid</param>
         /// <param name="y">y coordinate within the cell grid</param>
         /// <returns>returns the cell, or null if there is no cell at the specified coordinates</returns>
-        public static Cell FindCell(int x, int y)
+        private static Cell FindCell(int x, int y)
         {
             Cell ret = null;
 
@@ -177,5 +179,12 @@ namespace Game_of_Life.Classes
             return ret;
         }
 
+        private static void UpdateCells()
+        {
+            foreach (Cell c in Cells)
+            {
+                c.Life = c.LifeNew;
+            }
+        }
     }
 }
