@@ -54,5 +54,17 @@ namespace Game_of_Life
             pbGrid.Refresh();
             lblWorking.Visible = false;
         }
+
+        private void pbGrid_MouseMove(object sender, MouseEventArgs e)
+        {
+            foreach (Cell c in Grid.Cells)
+            {
+                if (c.Hitbox.Contains(e.Location))
+                {
+                    lblPosition.Text = c.ToString();
+                    break;
+                }
+            }
+        }
     }
 }

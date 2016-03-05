@@ -32,6 +32,7 @@
             this.lbCells = new System.Windows.Forms.ListBox();
             this.btnStep = new System.Windows.Forms.Button();
             this.lblWorking = new System.Windows.Forms.Label();
+            this.lblPosition = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             this.pbGrid.TabIndex = 0;
             this.pbGrid.TabStop = false;
             this.pbGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.pbGrid_Paint);
+            this.pbGrid.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbGrid_MouseMove);
             this.pbGrid.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbGrid_MouseUp);
             // 
             // lbCells
@@ -72,11 +74,20 @@
             this.lblWorking.TabIndex = 3;
             this.lblWorking.Text = "Working";
             // 
+            // lblPosition
+            // 
+            this.lblPosition.AutoSize = true;
+            this.lblPosition.Location = new System.Drawing.Point(12, 781);
+            this.lblPosition.Name = "lblPosition";
+            this.lblPosition.Size = new System.Drawing.Size(0, 13);
+            this.lblPosition.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1556, 779);
+            this.ClientSize = new System.Drawing.Size(1556, 803);
+            this.Controls.Add(this.lblPosition);
             this.Controls.Add(this.lblWorking);
             this.Controls.Add(this.btnStep);
             this.Controls.Add(this.lbCells);
@@ -95,6 +106,7 @@
         private System.Windows.Forms.ListBox lbCells;
         private System.Windows.Forms.Button btnStep;
         private System.Windows.Forms.Label lblWorking;
+        private System.Windows.Forms.Label lblPosition;
     }
 }
 
